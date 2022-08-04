@@ -1,0 +1,23 @@
+{
+  "name": "gpt-partytown",
+  "version": "1.0.0",
+  "description": "Experimenting with gpt.js and Partytown to understand if performance can be improved by moving ad loading activities to a Worker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonypconway/gpt-partytown.git"
+  },
+  "author": "Tony Conway, Harry Theodoulou",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/tonypconway/gpt-partytown/issues"
+  },
+  "homepage": "https://github.com/tonypconway/gpt-partytown#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
