@@ -1,26 +1,66 @@
 <html>
 
 <head>
-    <title>GPT/Partytown test page</title>
-</head>
-<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script>
+  <title>GPT/Partytown test page</title>
+
+  <!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script> -->
+  <script>
     window.googletag = window.googletag || { cmd: [] };
     googletag.cmd.push(function () {
-        googletag.defineSlot('/6353/tc_test/gpt-partytown', [[728, 90], [300, 250]], 'div-gpt-ad-1659621968957-0').addService(googletag.pubads());
-        googletag.pubads().enableSingleRequest();
-        googletag.enableServices();
+      googletag.defineSlot('/6353/tc_test/gpt-partytown', [[728, 90], [300, 250]], 'div-gpt-ad-1659621968957-0').addService(googletag.pubads());
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
     });
-</script>
+  </script>
+
+  <!-- START PARTYTOWN -->
+  <script type='module'>
+    import { partytownSnippet } from '/partytown/integration/index.mjs';
+    const snippetText = partytownSnippet();
+    const partytownScript = document.createElement('script')
+    partytownScript.type = 'text/javascript'
+    partytownScript.text = snippetText
+    document.head.appendChild(partytownScript);
+  </script>
+
+  <script>
+    partytown = {
+      debug: true,
+      // lib: "/~partytown/",
+      forward: ['googletag', 'googletag.cmd'],
+      resolveUrl(url, location) {
+        if (url.hostname.includes('securepubads.g.doubleclick.net')) {
+          const proxyUrl = new URL('https://cdn.builder.io/api/v1/proxy-api');
+          proxyUrl.searchParams.append('url', url);
+          return proxyUrl;
+        }
+
+        return url;
+      },
+      logCalls: true,
+      logGetters: true,
+      logSetters: true,
+      logImageRequests: true,
+      logMainAccess: true,
+      logSendBeaconRequests: true,
+      logStackTraces: false,
+      logScriptExecution: true,
+    }
+  </script>
+  <!-- Partytown debugging script in place of `partytown = { lib: "/~partytown/" }` above -->
+  <script src="/~partytown/debug/partytown.js"></script>
+  <script type="text/partytown" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <!-- END PARTYTOWN -->
+</head>
 
 <body>
-    <h1>GPT/Partytown test page</h1>
-    <!-- /6353/tc_test/gpt-partytown -->
-    <div id='div-gpt-ad-1659621968957-0' style='min-width: 300px; min-height: 90px;'>
-        <script>
-            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1659621968957-0'); });
-        </script>
-    </div>
+  <h1>GPT/Partytown test page</h1>
+  <!-- /6353/tc_test/gpt-partytown -->
+  <div id='div-gpt-ad-1659621968957-0' style='min-width: 300px; min-height: 90px;'>
+    <script>
+      googletag.cmd.push(function () { googletag.display('div-gpt-ad-1659621968957-0'); });
+    </script>
+  </div>
 </body>
 
 </html>

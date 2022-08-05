@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Experimenting with gpt.js and Partytown to understand if performance can be improved by moving ad loading activities to a Worker",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "npm run partytown && node index.js",
+    "partytown": "partytown copylib public/~partytown"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/tonypconway/gpt-partytown#readme",
   "dependencies": {
+    "@builder.io/partytown": "^0.6.4",
     "express": "^4.18.1"
   }
 }
